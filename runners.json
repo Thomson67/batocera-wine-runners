@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "repository": "Thomson67/batocera-wine-runners",
+  "install_path": "/userdata/system/wine/custom",
+  "runners": [
+    {
+      "id": "ge-custom-v40",
+      "name": "ge-custom-v40",
+      "file": "ge-custom-v40.tar.xz",
+      "family": "ge-custom",
+      "size_bytes": 117591328,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "GE-Proton10-10",
+      "name": "GE-Proton10-10",
+      "file": "GE-Proton10-10.tar.xz",
+      "family": "ge-proton",
+      "size_bytes": 333414752,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "GE-Proton10-25",
+      "name": "GE-Proton10-25",
+      "file": "GE-Proton10-25.tar.xz",
+      "family": "ge-proton",
+      "size_bytes": 338998664,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "proton-EM-10.0-37-HDR",
+      "name": "proton-EM-10.0-37-HDR",
+      "file": "proton-EM-10.0-37-HDR.tar.xz",
+      "family": "proton-em",
+      "size_bytes": 352073524,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-10.0-amd64",
+      "name": "wine-10.0-amd64",
+      "file": "wine-10.0-amd64.tar.xz",
+      "family": "wine",
+      "size_bytes": 65094660,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-11.17-amd64-wow64",
+      "name": "wine-11.17-amd64-wow64",
+      "file": "wine-11.17-amd64-wow64.tar.xz",
+      "family": "wine-wow64",
+      "size_bytes": 101052988,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-11.5-amd64-wow64",
+      "name": "wine-11.5-amd64-wow64",
+      "file": "wine-11.5-amd64-wow64.tar.xz",
+      "family": "wine-wow64",
+      "size_bytes": 85793836,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-9.17-amd64",
+      "name": "wine-9.17-amd64",
+      "file": "wine-9.17-amd64.tar.xz",
+      "family": "wine",
+      "size_bytes": 57010336,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-proton-9.0-4-amd64",
+      "name": "wine-proton-9.0-4-amd64",
+      "file": "wine-proton-9.0-4-amd64.tar.xz",
+      "family": "wine-proton",
+      "size_bytes": 57854840,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-proton-exp-10.0-amd64",
+      "name": "wine-proton-exp-10.0-amd64",
+      "file": "wine-proton-exp-10.0-amd64.tar.xz",
+      "family": "wine-proton",
+      "size_bytes": 69635532,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-tkg-10.17-amd64",
+      "name": "wine-tkg-10.17-amd64",
+      "file": "wine-tkg-10.17-amd64.tar.xz",
+      "family": "wine-tkg",
+      "size_bytes": 94994116,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-tkg-11.5-amd64-wow64",
+      "name": "wine-tkg-11.5-amd64-wow64",
+      "file": "wine-tkg-11.5-amd64-wow64.tar.xz",
+      "family": "wine-tkg-wow64",
+      "size_bytes": 87318720,
+      "release_tag": null,
+      "sha256": null
+    },
+    {
+      "id": "wine-tkg-v41",
+      "name": "wine-tkg-v41",
+      "file": "wine-tkg-v41.tar.xz",
+      "family": "wine-tkg",
+      "size_bytes": 115365972,
+      "release_tag": null,
+      "sha256": null
+    }
+  ]
+}
