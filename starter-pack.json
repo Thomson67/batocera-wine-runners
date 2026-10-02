@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "Thomsonito Runner Starter Pack",
+  "version": "2026.10",
+  "description": "Recommended Wine/Proton runners for Batocera compatibility.",
+  "runner_ids": [
+    "ge-custom-v40",
+    "GE-Proton10-10",
+    "GE-Proton10-25",
+    "proton-EM-10.0-37-HDR",
+    "wine-10.0-amd64",
+    "wine-11.17-amd64-wow64",
+    "wine-11.5-amd64-wow64",
+    "wine-9.17-amd64",
+    "wine-proton-9.0-4-amd64",
+    "wine-proton-exp-10.0-amd64",
+    "wine-tkg-10.17-amd64",
+    "wine-tkg-11.5-amd64-wow64",
+    "wine-tkg-v41"
+  ]
+}
