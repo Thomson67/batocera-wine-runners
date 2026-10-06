@@ -1,0 +1,54 @@
+name: Validate prefix catalog
+
+on:
+  push:
+    branches:
+      - main
+      - 'prefix-pack-*'
+    paths:
+      - prefixes.json
+      - .github/workflows/prefix-catalog.yml
+  pull_request:
+    paths:
+      - prefixes.json
+      - .github/workflows/prefix-catalog.yml
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate prefixes.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('prefixes.json').read_text(encoding='utf-8'))
+          assert data.get('schema_version') == 1
+          prefixes = data.get('prefixes')
+          assert isinstance(prefixes, list) and prefixes, 'prefixes must be a non-empty list'
+
+          seen = set()
+          defaults = 0
+          required = {'id','name','version','file','format','compression','size_bytes','release_tag','download_url','sha256','default'}
+          for entry in prefixes:
+              missing = required - set(entry)
+              assert not missing, f"{entry.get('id', '<unknown>')}: missing {sorted(missing)}"
+              assert entry['id'] not in seen, f"duplicate id: {entry['id']}"
+              seen.add(entry['id'])
+              assert isinstance(entry['size_bytes'], int) and entry['size_bytes'] > 0
+              assert len(entry['sha256']) == 64
+              int(entry['sha256'], 16)
+              expected_tag = f"prefix-pack-{entry['version']}"
+              assert entry['release_tag'] == expected_tag
+              expected_suffix = f"/releases/download/{entry['release_tag']}/{entry['file']}"
+              assert entry['download_url'].endswith(expected_suffix)
+              defaults += bool(entry['default'])
+
+          assert defaults == 1, f'exactly one default prefix is required, found {defaults}'
+          print(f'prefix catalog OK: {len(prefixes)} entry(s), {defaults} default')
+          PY
