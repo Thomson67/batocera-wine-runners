@@ -47,8 +47,15 @@ $notes = @(
 ) -join [Environment]::NewLine
 Set-Content -LiteralPath $notesFile -Encoding utf8 -Value $notes
 
+$previousErrorActionPreference = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
 & gh release view $Tag --repo $Repo *> $null
-if ($LASTEXITCODE -eq 0) { throw "Release $Tag already exists." }
+$releaseViewExitCode = $LASTEXITCODE
+$ErrorActionPreference = $previousErrorActionPreference
+
+if ($releaseViewExitCode -eq 0) {
+    throw "Release $Tag already exists."
+}
 
 $argsList = @(
   "release", "create", $Tag,
