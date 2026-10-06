@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "repository": "Thomson67/batocera-wine-runners",
+  "install_path": "/userdata/system/ultimate-wine-toolbox/templates",
+  "prefixes": [
+    {
+      "id": "default-wine-prefix",
+      "name": "Default Wine Prefix",
+      "version": "2026.10",
+      "file": "default-wine-prefix-2026.10.wsquashfs.prefix",
+      "format": "squashfs-prefix",
+      "compression": "zstd",
+      "size_bytes": 114638848,
+      "release_tag": "prefix-pack-2026.10",
+      "download_url": "https://github.com/Thomson67/batocera-wine-runners/releases/download/prefix-pack-2026.10/default-wine-prefix-2026.10.wsquashfs.prefix",
+      "sha256": "500f1b89cedbc37094d9f0c69b14922d0a9e3b973c25c169a196d05c06a05368",
+      "default": true
+    }
+  ]
+}
