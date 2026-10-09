@@ -67,10 +67,13 @@ def main():
             (runner / "uwt-source.json").write_text(json.dumps(provenance, indent=2) + "\n")
             filename = rid + ".tar.xz"
             destination = output / filename
+            packed = work / filename
             subprocess.run(["tar", "--sort=name", "--mtime=2026-10-01 00:00:00Z",
                             "--owner=0", "--group=0", "--numeric-owner", "-cJf",
-                            str(destination), "-C", str(payload), name], check=True,
+                            str(packed), "-C", str(payload), name], check=True,
                            env=dict(os.environ, XZ_OPT="-T2 -1"))
+            subprocess.run(["xz", "-t", str(packed)], check=True)
+            shutil.move(packed, destination)
             additions.append({"id": rid, "name": name, "file": filename, "family": family,
                               "size_bytes": destination.stat().st_size, "release_tag": TAG,
                               "download_url": f"https://github.com/{REPO}/releases/download/{TAG}/{filename}",
