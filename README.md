@@ -55,3 +55,11 @@ The repository includes helper scripts that validate the selected asset against 
 Both helpers verify the expected filename, byte size and SHA-256, generate `SHA256SUMS.txt`, create the GitHub release, and upload both assets using GitHub CLI (`gh`).
 
 The `Validate prefix catalog` GitHub Actions workflow checks the catalog structure, uniqueness, checksum format, release-tag naming and download URLs on pushes and pull requests.
+
+## Classic Proton starter-pack update
+
+`scripts/build-classic-proton-pack.py` packages GE-Proton10-10 and proton-EM-10.0-37-HDR from their pinned, SHA-256-verified upstream releases. It preserves Proton files and adds relative `bin`, `lib`, `lib64`, `lib32` and `share` entry points where needed for Batocera's classic Wine launcher. GE-Proton10-10 uses the toolbox's canonical installation name `GE-Proton-10-10`.
+
+The starter selection replaces GE-Proton10-10-UMU and proton-EM-10.0-37-HDR-UMU with these classic runners, and adds GE-Proton11-7-UMU. Other runner entries are preserved. This does not uninstall runners already present on users' machines.
+
+The `Publish classic Proton starter runners` workflow uploads only the two new archives and the updated `SHA256SUMS.txt` to the existing `starter-pack-2026.10` release, then commits the resulting catalog metadata.
