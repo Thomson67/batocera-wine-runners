@@ -33,6 +33,10 @@ jobs:
             gh release upload starter-pack-2026.10 "${archives[@]}"
           fi
           gh release upload starter-pack-2026.10 dist/SHA256SUMS.txt --clobber
+      - name: Update starter pack release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit starter-pack-2026.10 --notes-file release-notes/starter-pack-2026.10.md
       - name: Commit verified catalog metadata
         run: |
           git config user.name 'github-actions[bot]'
