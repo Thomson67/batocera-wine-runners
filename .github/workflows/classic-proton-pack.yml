@@ -21,21 +21,24 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
-      - name: Build and verify the two classic runners
+      - name: Build and verify missing classic runners
         run: python3 scripts/build-classic-proton-pack.py
       - name: Publish runner archives and updated checksums
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload starter-pack-2026.10 \
-            dist/GE-Proton10-10.tar.xz dist/proton-EM-10.0-37-HDR.tar.xz \
-            dist/SHA256SUMS.txt --clobber
+          shopt -s nullglob
+          archives=(dist/*.tar.xz)
+          if [ "${#archives[@]}" -gt 0 ]; then
+            gh release upload starter-pack-2026.10 "${archives[@]}"
+          fi
+          gh release upload starter-pack-2026.10 dist/SHA256SUMS.txt --clobber
       - name: Commit verified catalog metadata
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add runners.json starter-pack.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Update starter pack with classic GE/EM and GE-Proton11-7-UMU'
+            git commit -m 'Add verified classic runners to the starter pack'
             git push origin HEAD:main
           fi
