@@ -18,9 +18,6 @@ SOURCES = (
     ("GE-Proton10-25", "GE-Proton-10-25", "ge-proton",
      "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton10-25/GE-Proton10-25.tar.gz",
      "b0e4a71cd8a6110a222934d5512725110c0e3b780f5f293d127a6d1eb9c8ba6d"),
-    ("dwproton-11.0-14", "dwproton-11.0-14", "dw-proton",
-     "https://github.com/dawn-winery/dwproton-mirror/releases/download/dwproton-11.0-14/dwproton-11.0-14-x86_64.tar.xz",
-     "c563cc99d464fb19a767a0eb90dc723746bfcdd402a4fdaa0737b12af081f99a"),
 )
 ROOT = Path(__file__).resolve().parents[1]
 TAG = "starter-pack-2026.10"
